@@ -1,4 +1,5 @@
 from flet import *
+import sqlite3
 
 class Exercicios(UserControl):
     def __init__(self, nome, carga, repeticao, status_exercicio, delete_exercicio, show_checkbox):
