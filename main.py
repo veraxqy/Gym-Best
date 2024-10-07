@@ -60,6 +60,12 @@ class Exercicios(UserControl):
         )
         return super().build()
     
+    def edit_exercicio(self):
+        self.edit_nome.value = self.check_exercicio.label
+        self.display_view.visible = False
+        self.edit_view.visible = True
+        self.update()
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
