@@ -92,7 +92,50 @@ class CreateExercicio(UserControl):
         self.total_exercicios = Text(value="0 Exercício(s) Adicionado(s)")
         self.exercicios_container = Column()
 
-    def add_exercicio(self):
+        self.exercicio_pagina = Container(
+            Column(
+                controls=[
+                    Row(
+                        controls=[
+                            self.total_exercicios,
+                        ],
+                        alignment=MainAxisAlignment.CENTER
+                    ),
+                    Row(
+                        controls=[
+                            Column(
+                                controls=[
+                                    self.exercicio_nome,
+                                    self.exercicio_carga,
+                                    self.exercicio_repeticao,
+                                    self.exercicio_button,
+                                ],
+                                spacing=10,
+                            ),
+                        ],
+                        alignment=MainAxisAlignment.CENTER
+                    ),
+                ]
+            ),
+        )
+        
+        Column(
+            width=400,
+            controls=[
+                
+                
+                Column(
+                    spacing=20,
+                    controls=[
+                        self.exercicios_container,
+                    ]
+                )
+            ]
+        )
+
+        return self.exercicio_pagina
+
+    def add_exercicio(self, e):
         nome = self.exercicio_nome.value
         carga = self.exercicio_carga.value
         repeticao = self.exercicio_repeticao.value
@@ -152,10 +195,15 @@ class GymBest(UserControl):
                                 on_click=lambda e: self.page.go("/"),
                                 icon_color = colors.WHITE,
                             ),
+                        ]
+                    ),
+                    Row(
+                        controls=[
                             Text(value="Exercícios", style="headlineMedium"),
                         ],
                         alignment=MainAxisAlignment.CENTER
                     ),
+                    CreateExercicio()
                 ]
             )
         )
