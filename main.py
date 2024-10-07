@@ -62,10 +62,23 @@ class Exercicios(UserControl):
     
 class GymBest(UserControl):
     def build(self):
-        self.home_view = Column(
-            controls=[
-                Row([Text(value="Página Inicial", style="headlineMedium")], alignment="center"),
-            ]
+        self.home_view = Container(
+            Column(
+                controls=[
+                    Row(
+                        controls=[
+                            Text(value="Página Inicial", style="headlineMedium"),
+                        ],
+                        alignment=MainAxisAlignment.CENTER
+                    ),
+                    Row(
+                        controls=[
+                            ElevatedButton("Exercícios", on_click= lambda e: self.page.go("/exercicios")),
+                        ],
+                        alignment=MainAxisAlignment.CENTER
+                    ),
+                ]
+            ),
         )
 
         self.exercicios_view = Column(
