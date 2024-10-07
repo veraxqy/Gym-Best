@@ -99,8 +99,20 @@ class GymBest(UserControl):
             ],
             expand=True,
         )
-        
+
         return self.stack
+    
+    def route_change(self, route):
+        if route.route == "/":
+            self.stack.controls[0].visible = True
+            self.stack.controls[1].visible = False
+        elif route.route == "/exercicios":
+            self.stack.controls[0].visible = False
+            self.stack.controls[1].visible = True
+        self.update()
+
+    def view_pop(self, view):
+        self.page.go("/")
 
 def main(page: Page):
     page.title = "Gym-Best"
@@ -109,5 +121,9 @@ def main(page: Page):
 
     app = GymBest()
     page.add(app)
+
+    page.on_route_change = app.route_change
+    page.on_view_pop = app.view_pop
+    page.go("/")
 
 app(target=main)
