@@ -67,6 +67,17 @@ class GymBest(UserControl):
                 Row([Text(value="Página Inicial", style="headlineMedium")], alignment="center"),
             ]
         )
+
+        self.exercicios_view = Column(
+            controls=[
+                Row(
+                    [
+                        Text(value="Exercícios", style="headlineMedium"),
+                    ],
+                    alignment="center",
+                )
+            ]
+        )
         return self.home_view
 
 def main(page: Page):
