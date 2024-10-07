@@ -116,6 +116,11 @@ class CreateExercicio(UserControl):
         self.exercicios_container.controls.remove(exercicio)
         self.update_total_exercicios()
 
+    def update_total_exercicios(self):
+        total = len(self.exercicios_container.controls)
+        self.total_exercicios.value = f"{total} Exercício(s) Cadastro(s)"
+        self.update()
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
