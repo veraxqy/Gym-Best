@@ -112,6 +112,10 @@ class CreateExercicio(UserControl):
     def status_exercicio(self):
         self.update()
 
+    def delete_exercicio(self, exercicio):
+        self.exercicios_container.controls.remove(exercicio)
+        self.update_total_exercicios()
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
