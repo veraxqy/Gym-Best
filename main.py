@@ -81,15 +81,22 @@ class GymBest(UserControl):
             ),
         )
 
-        self.exercicios_view = Column(
-            controls=[
-                Row(
-                    [
-                        Text(value="Exercícios", style="headlineMedium"),
-                    ],
-                    alignment="center",
-                )
-            ]
+        self.exercicios_view = Container(
+            Column(
+                controls=[
+                    Row(
+                        controls=[
+                            IconButton(
+                                icon=icons.ARROW_BACK,
+                                on_click=lambda e: self.page.go("/"),
+                                icon_color = colors.WHITE,
+                            ),
+                            Text(value="Exercícios", style="headlineMedium"),
+                        ],
+                        alignment=MainAxisAlignment.CENTER
+                    ),
+                ]
+            )
         )
 
         self.stack = Stack(
