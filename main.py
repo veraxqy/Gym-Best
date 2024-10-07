@@ -109,6 +109,9 @@ class CreateExercicio(UserControl):
             self.exercicio_nome.focus()
             self.update_total_exercicios()
 
+    def status_exercicio(self):
+        self.update()
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
