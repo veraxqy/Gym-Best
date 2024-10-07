@@ -71,6 +71,9 @@ class Exercicios(UserControl):
         self.display_view.visible = True
         self.edit_view.visible = False
         self.update()
+    
+    def delet_exercicio(self):
+        self.delete_exercicio(self)
 
 class GymBest(UserControl):
     def build(self):
