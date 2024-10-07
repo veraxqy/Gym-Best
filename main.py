@@ -92,6 +92,22 @@ class CreateExercicio(UserControl):
         self.total_exercicios = Text(value="0 Exercício(s) Adicionado(s)")
         self.exercicios_container = Column()
 
+    def add_exercicio(self):
+        nome = self.exercicio_nome.value
+        carga = self.exercicio_carga.value
+        repeticao = self.exercicio_repeticao.value
+
+        if nome and carga and repeticao:
+            exercicio = Exercicios(
+                nome, carga, repeticao, self.status_exercicio,
+                self.delete_exercico, show_checkbox=False
+            )
+            self.exercicios_container.controls.append(exercicio)
+            self.exercicio_nome.value = ""
+            self.exercicio_carga.value = ""
+            self.exercicio_repeticao.value = ""
+            self.exercicio_nome.focus()
+            self.update_total_exercicios()
 
 class GymBest(UserControl):
     def build(self):
