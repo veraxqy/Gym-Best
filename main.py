@@ -79,6 +79,20 @@ class Exercicios(UserControl):
         self.completed = self.check_exercicio.value
         self.status_changed(self)
 
+class CreateExercicio(UserControl):
+    def build(self):
+        self.exercicio_nome = TextField(hint_text="Nome do Exercício")
+        self.exercicio_carga = TextField(hint_text="Carga do Exercício")
+        self.exercicio_repeticao = TextField(hint_text="Repetições do Exercício")
+
+        self.exercicio_button = ElevatedButton(
+            text="Adicionar Exercício", icon=icons.ADD, on_click=self.add_exercicio
+        )
+
+        self.total_exercicios = Text(value="0 Exercício(s) Adicionado(s)")
+        self.exercicios_container = Column()
+
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
