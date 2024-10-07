@@ -75,6 +75,10 @@ class Exercicios(UserControl):
     def delet_exercicio(self):
         self.delete_exercicio(self)
 
+    def status_changed(self):
+        self.completed = self.check_exercicio.value
+        self.status_changed(self)
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
