@@ -91,7 +91,16 @@ class GymBest(UserControl):
                 )
             ]
         )
-        return self.home_view
+
+        self.stack = Stack(
+            controls=[
+                self.home_view,
+                self.exercicios_view,
+            ],
+            expand=True,
+        )
+        
+        return self.stack
 
 def main(page: Page):
     page.title = "Gym-Best"
