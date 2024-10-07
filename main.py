@@ -66,6 +66,12 @@ class Exercicios(UserControl):
         self.edit_view.visible = True
         self.update()
 
+    def save_exercicio(self):
+        self.check_exercicio.label = self.edit_nome.value
+        self.display_view.visible = True
+        self.edit_view.visible = False
+        self.update()
+
 class GymBest(UserControl):
     def build(self):
         self.home_view = Container(
