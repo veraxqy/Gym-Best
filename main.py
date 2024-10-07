@@ -59,12 +59,22 @@ class Exercicios(UserControl):
             ]
         )
         return super().build()
+    
+class GymBest(UserControl):
+    def build(self):
+        self.home_view = Column(
+            controls=[
+                Row([Text(value="Página Inicial", style="headlineMedium")], alignment="center"),
+            ]
+        )
+        return self.home_view
 
 def main(page: Page):
     page.title = "Gym-Best"
     page.horizontal_alignment = "center"
     page.scroll = "adaptive"
 
-    page.add()
+    app = GymBest()
+    page.add(app)
 
 app(target=main)
